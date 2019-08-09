@@ -50,5 +50,35 @@ Anaconda 是数据科学家的必备神器，而我们使用它安装 TensorFlow
     bash ./#Anaconda.sh#
  
 # 4  使用anaconda安装tenforflow_gpu版本(强烈推荐)，终端输入下面命令即可
+    conda install tensorflow-gpu # tensorflow-gpu == 1.14.0
+
+# 5 tensorflow 测试使用下面的命令进行测试
+    方法1
+
+    import tensorflow as tf
+    if tf.test.gpu_device_name():
+        print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
+    else:
+        print("Please install GPU version of TF")
+
+    方法2
+
+    import tensorflow as tf
+
+    tf = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+    tf.list_devices()
+
+    方法3
+
+    import tensorflow as tf
+
+    tf.test.gpu_device_name()
+
+    方法4
+
+    from tensorflow.python.client import device_lib 
+    device_lib.list_local_devices()
     
+# 7 opencv安装，pycharm的terminal下输入下面命令回车即可  (更换国内镜像源)
+    pip install opencv-python
  
